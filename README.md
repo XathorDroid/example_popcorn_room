@@ -17,3 +17,6 @@ With this application we expect to learn the basics for the use of **Android Jet
     
 * Glide v4.12.0
     * [github.com/bumptech/glide](https://github.com/bumptech/glide)
+    
+* Room v2.2.6
+    * [developer.android.com/jetpack/androidx/releases/room](https://developer.android.com/jetpack/androidx/releases/room#kotlin)
