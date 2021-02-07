@@ -8,15 +8,19 @@ import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import com.xathordroid.popcornroom.R
 import com.xathordroid.popcornroom.common.MyApp
 import com.xathordroid.popcornroom.data.local.entity.Movie
+import com.xathordroid.popcornroom.viewmodel.MovieViewModel
 
 class MovieFragment : Fragment() {
 
-    private var columnCount = 1
     private lateinit var moviesAdapter: MyMovieRecyclerViewAdapter
+    private lateinit var movieViewModel: MovieViewModel
     private var popularMovies: List<Movie> = ArrayList()
+
+    private var columnCount = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +28,8 @@ class MovieFragment : Fragment() {
         arguments?.let {
             columnCount = it.getInt(ARG_COLUMN_COUNT)
         }
+
+        movieViewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -41,7 +47,19 @@ class MovieFragment : Fragment() {
                 adapter = moviesAdapter
             }
         }
+
+        loadMovies()
+
         return view
+    }
+
+    private fun loadMovies() {
+        movieViewModel.popularMovies().observe(viewLifecycleOwner, {
+            it.data?.let { movies ->
+                popularMovies = movies
+                moviesAdapter.setData(popularMovies)
+            }
+        })
     }
 
     companion object {
