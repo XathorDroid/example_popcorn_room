@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.xathordroid.popcornroom.R
-import com.xathordroid.popcornroom.common.Constantes
-import com.xathordroid.popcornroom.data.Movie
+import com.xathordroid.popcornroom.data.remote.ApiConstants
+import com.xathordroid.popcornroom.data.local.Movie
 
 class MyMovieRecyclerViewAdapter(private val context: Context, private val values: List<Movie>) : RecyclerView.Adapter<MyMovieRecyclerViewAdapter.ViewHolder>() {
 
@@ -22,7 +22,7 @@ class MyMovieRecyclerViewAdapter(private val context: Context, private val value
         val item = values[position]
 
         Glide.with(context)
-            .load(Constantes.IMAGE_BASE_URL + item.poster_path)
+            .load(ApiConstants.IMAGE_BASE_URL + item.poster_path)
             .into(holder.ivCover)
     }
 

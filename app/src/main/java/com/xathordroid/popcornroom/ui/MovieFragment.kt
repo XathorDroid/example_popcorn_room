@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.xathordroid.popcornroom.R
 import com.xathordroid.popcornroom.common.MyApp
-import com.xathordroid.popcornroom.data.Movie
+import com.xathordroid.popcornroom.data.local.Movie
 
 class MovieFragment : Fragment() {
 

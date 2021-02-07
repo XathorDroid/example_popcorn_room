@@ -1,4 +1,4 @@
-package com.xathordroid.popcornroom.data
+package com.xathordroid.popcornroom.data.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

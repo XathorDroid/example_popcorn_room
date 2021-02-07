@@ -1,6 +1,6 @@
-package com.xathordroid.popcornroom.common
+package com.xathordroid.popcornroom.data.remote
 
-class Constantes {
+class ApiConstants {
 
     companion object {
         public val TMDBAPI_BAASE_URL = "https://api.themoviedb.org/3/"
