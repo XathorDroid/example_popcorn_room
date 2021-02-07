@@ -9,7 +9,7 @@ import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.xathordroid.popcornroom.R
 import com.xathordroid.popcornroom.data.remote.ApiConstants
-import com.xathordroid.popcornroom.data.local.Movie
+import com.xathordroid.popcornroom.data.local.entity.Movie
 
 class MyMovieRecyclerViewAdapter(private val context: Context, private val values: List<Movie>) : RecyclerView.Adapter<MyMovieRecyclerViewAdapter.ViewHolder>() {
 

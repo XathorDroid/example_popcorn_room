@@ -1,6 +1,6 @@
 package com.xathordroid.popcornroom.data.remote.model
 
-import com.xathordroid.popcornroom.data.local.Movie
+import com.xathordroid.popcornroom.data.local.entity.Movie
 
 data class PopularMoviesResponse(
     val page: Int,

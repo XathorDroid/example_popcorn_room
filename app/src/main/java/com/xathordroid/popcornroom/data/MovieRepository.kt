@@ -1,5 +1,9 @@
 package com.xathordroid.popcornroom.data
 
+import androidx.room.Room
+import com.xathordroid.popcornroom.common.MyApp
+import com.xathordroid.popcornroom.data.local.MovieRoomDatabase
+import com.xathordroid.popcornroom.data.local.dao.MovieDao
 import com.xathordroid.popcornroom.data.remote.ApiConstants
 import com.xathordroid.popcornroom.data.remote.MovieApiService
 import com.xathordroid.popcornroom.data.remote.RequestInterceptor
@@ -10,8 +14,17 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MovieRepository {
 
     var movieApiService: MovieApiService? = null
+    var movieDao: MovieDao? = null
 
     init {
+        // Local > Room
+        val movieRoomDatabase = Room.databaseBuilder(
+            MyApp.getContext(),
+            MovieRoomDatabase::class.java,
+            "db_movies"
+        ).build()
+        movieDao = movieRoomDatabase.getMovieDao()
+
         // RequestInterceptor
         val okHttpClientBuilder = OkHttpClient.Builder()
         okHttpClientBuilder.addInterceptor(RequestInterceptor())
