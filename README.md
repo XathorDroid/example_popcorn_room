@@ -14,3 +14,6 @@ With this application we expect to learn the basics for the use of **Android Jet
     
 * Gson v2.8.6
     * [github.com/google/gson](https://github.com/google/gson)
+    
+* Glide v4.12.0
+    * [github.com/bumptech/glide](https://github.com/bumptech/glide)
