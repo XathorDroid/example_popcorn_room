@@ -20,7 +20,7 @@ class MovieFragment : Fragment() {
     private lateinit var movieViewModel: MovieViewModel
     private var popularMovies: List<Movie> = ArrayList()
 
-    private var columnCount = 1
+    private var columnCount = 2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,12 +28,12 @@ class MovieFragment : Fragment() {
         arguments?.let {
             columnCount = it.getInt(ARG_COLUMN_COUNT)
         }
-
-        movieViewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_item_list, container, false)
+
+        movieViewModel = ViewModelProvider(this).get(MovieViewModel::class.java)
 
         moviesAdapter = MyMovieRecyclerViewAdapter(MyApp.getContext(), popularMovies)
 
