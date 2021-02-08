@@ -8,7 +8,6 @@ data class Movie(
     @PrimaryKey val id: Int,
     val adult: Boolean,
     val backdrop_path: String,
-    val genre_ids: List<Int>,
     val original_language: String,
     val original_title: String,
     val overview: String,
